@@ -21,20 +21,21 @@ int main(){
     int n, op;
     string nom, user, domain;
     char sex;
+    char confirmar;
     int edad;
     correo email;
     contactoEmail cont, lista[100];
     n = 0;
     do{
         system("cls");
-        cout<<"Menu de opciones -------------------------"<<endl;
+        cout<<"-----------------------Menu de opciones --------------------------"<<endl;
         cout<<"1. Agregar contacto"<<endl;
         cout<<"2. Mostrar contactos"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
             case 1:
-                cout<<"Ingrese los datos de un usuario: "<<endl;
+                cout<<"---------Ingrese los datos de un usuario: "<<endl<<endl;
                 cin.ignore();
                 cout<<"Ingrese el nombre del contacto: "; getline(cin,nom);
                 cout<<"Ingrese el sexo (M/F): "; cin>>sex;
@@ -59,9 +60,18 @@ int main(){
                 }
                 system("pause");
                 break;
-            case 0:
-                cout<<"Esta seguro de salir? (S/N): ";
-                break;
+            case 0: {
+                cout << "Esta seguro que desea salir? (S/N): ";
+                cin >> confirmar;
+                if (confirmar == 'S' || confirmar == 's') {
+                    cout << "Saliendo del programa...\n";
+                } else {
+                    op = -1; 
+                }
+                system("pause");
+                 break;
+            }
+
             default:
                 cout<<"Opcion no valida!"<<endl;
                 system("pause");
